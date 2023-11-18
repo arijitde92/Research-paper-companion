@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "researchpaperbot"
+version = "0.1.0"
+description = "An AI companion to help you understand research papers. You can upload"
+authors = ["Arijit De <arijitde2050@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+quart = "^0.19.3"
+quart-db = "^0.7.1"
+quart-schema = "^0.18.0"
+psycopg2-binary = "^2.9.9"
+tqdm = "^4.66.1"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
