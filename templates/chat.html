@@ -17,8 +17,11 @@
         <h1 class="display-4 text-white">Research Bot</h1>
         <p class="text-white lead mb-0">Your AI companion to understand research papers</p>
         <p class="text-white lead mb-4">Upload your article and start conversing...</p>
-        <label for="fileUpload">Upload a research article</label>
-        <input type="file" id="fileUpload" name="file-upload" value="Upload PDF" accept=".pdf, .txt">
+        <form action="{{ url_for('upload_file')}}" method=post enctype=multipart/form-data>
+          <label for="fileUpload">Upload a research article</label>
+          <input type="file" id="fileUpload" name="file-upload" value="Upload PDF" accept=".pdf, .txt">
+          <input type="submit" value="Upload">
+        </form>
       </header>
 
       <div class="row rounded-lg overflow-hidden shadow">
@@ -80,14 +83,16 @@
                     <p class="small text-muted">12:00 PM | Aug 13</p>
                   </div>
                 </div>
+              {% endif %}
+            {% endfor %}
           </div>
 
           <!-- Typing area -->
-          <form action="#" class="bg-light">
+          <form action="{{ url_for('new_message') }}" class="bg-light" method="post">
             <div class="input-group">
-              <input type="text" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
+              <input type="text" id='txtQuestion' name='txtQuestion' placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 py-4 bg-light">
               <div class="input-group-append">
-                <button id="button-addon2" type="submit" class="btn btn-link"> <i class="fa fa-paper-plane"></i></button>
+                <button id="button-addon2" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
               </div>
             </div>
           </form>
