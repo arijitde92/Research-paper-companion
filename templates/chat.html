@@ -1,29 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Research Paper AI companion</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+{% extends 'base.html' %}
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/chats.css">
-</head>
-<body>
-    <div class="container py-5 px-4">
-      <!-- For demo purpose-->
-      <header class="text-center">
-        <h1 class="display-4 text-white">Research Bot</h1>
-        <p class="text-white lead mb-0">Your AI companion to understand research papers</p>
-        <p class="text-white lead mb-4">Upload your article and start conversing...</p>
-        <form action="{{ url_for('upload_file')}}" method=post enctype=multipart/form-data>
-          <label for="fileUpload">Upload a research article</label>
-          <input type="file" id="fileUpload" name="file-upload" value="Upload PDF" accept=".pdf, .txt">
-          <input type="submit" value="Upload">
-        </form>
-      </header>
-
+{% block content %}
       <div class="row rounded-lg overflow-hidden shadow">
         <!-- Users box-->
         <div class="col-5 px-0">
@@ -99,6 +76,4 @@
 
         </div>
       </div>
-    </div>
-</body>
-</html>
+{% endblock %}

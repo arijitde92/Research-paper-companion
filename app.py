@@ -52,19 +52,19 @@ async def new_message():
     return redirect(url_for('chat'))
 
 
-@app.route("/upload_pdf", methods=['POST'])
+@app.route("/upload_pdf", methods=['GET', 'POST'])
 async def upload_file():
     """New post route."""
     if request.method == 'POST':
         files = await request.files
         form = await request.form
         doc = files.get('file-upload')
-        filename = await uploaded_docs.save(doc, name='user/assignment1.')
+        filename = await uploaded_docs.save(doc, name='user'+os.sep+doc.filename)
         await flash("Post Successfully", "success")
         print("File uploaded to ", filename)
-        return 'OK'
-    else:
         return redirect(url_for('chat'))
-
+    else:
+        # return redirect(url_for('chat'))
+        return await render_template('files.html')
 if __name__ == "__main__":
     app.run(debug=True)
