@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Chats {% endblock %}
+{% block content %}
+<div class="container text-center">
+    <h1>Login</h1>
+    <form action="{{ url_for('login')}}" method="post">
+        <label for="txtUsername">Username</label>
+        <input type="text" name="username" id="txtUsername" required>
+        <br>
+        <label for="txtPassword">Password</label>
+        <input type="password" name="password" id="txtPassword" required>
+        <br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+{% endblock %}
